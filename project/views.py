@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ProductForm
+from .models import product
 
 def home(request):
-    return HttpResponse("Hello from core app!")
+    products = product.objects.all().order_by('-created_at')  # optional ordering
+    return render(request, 'products.html', {'products': products})
 def homepage(request):
     return render(request, 'home.html')
 # project/views.py
