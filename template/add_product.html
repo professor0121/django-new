@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Add a New Product</h2>
+  <form method="POST" enctype="multipart/form-data" class="max-w-md mx-auto bg-white p-6 rounded shadow">
+    {% csrf_token %}
+    
+    {{ form.non_field_errors }}
+
+    <div class="mb-4">
+      {{ form.name.label_tag }} 
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+
+    <div class="mb-4">
+      {{ form.price.label_tag }} 
+      {{ form.price }}
+      {{ form.price.errors }}
+    </div>
+
+    <div class="mb-4">
+      {{ form.des.label_tag }} 
+      {{ form.des }}
+      {{ form.des.errors }}
+    </div>
+
+    <div class="mb-6">
+      {{ form.image.label_tag }} 
+      {{ form.image }}
+      {{ form.image.errors }}
+    </div>
+
+    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+      Submit
+    </button>
+  </form>
+{% endblock %}

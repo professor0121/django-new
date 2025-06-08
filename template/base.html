@@ -1,0 +1,18 @@
+<!-- project/templates/base.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Django Site</title>
+</head>
+<body>
+   {% include "header.html" %}
+  <div class="p-4">
+    {% block content %}
+    <!-- Default content here -->
+    {% endblock %}
+  </div>
+</body>
+</html>
